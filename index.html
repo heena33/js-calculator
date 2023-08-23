@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="wrapper">
+        <table>
+            <tr>
+                <td colspan="4"><input type="text" value="0" id="result"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="button" value="C" class="red" onclick="clr()"></td>
+                <td><input type="button" value="%" class="value" onclick="display('%')"></td>
+                <td><input type="button" value="/" class="value" onclick="display('/')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="7" class="value" onclick="display('7')"></td>
+                <td><input type="button" value="8" class="value" onclick="display('8')"></td>
+                <td><input type="button" value="9" class="value" onclick="display('9')"></td>
+                <td><input type="button" value="*" class="value" onclick="display('*')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="4" class="value" onclick="display('4')"></td>
+                <td><input type="button" value="5" class="value" onclick="display('5')"></td>
+                <td><input type="button" value="6" class="value" onclick="display('6')"></td>
+                <td><input type="button" value="-" class="value" onclick="display('-')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="1" class="value" onclick="display('1')"></td>
+                <td><input type="button" value="2" class="value" onclick="display('2')"></td>
+                <td><input type="button" value="3" class="value" onclick="display('3')"></td>
+                <td><input type="button" value="+" class="value" onclick="display('+')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="." class="value" onclick="display('.')"></td>
+                <td><input type="button" value="0" class="value" onclick="display('0')"></td>
+                <td colspan="2"><input type="button" value="=" onclick="evaluateValue()"></td>
+            </tr>
+        </table>
+    </div>
+    
+    <script>
+        const clr = () => {
+            document.getElementById("result").value = "0";
+        }
+
+        const display = (val) => {
+            let x = document.getElementById("result").value; 
+            
+            if (x == '0') {
+                document.getElementById("result").value = "";
+            }
+            document.getElementById("result").value += val;
+        };
+
+        const evaluateValue = () => {
+            let x = document.getElementById("result").value;
+
+            if (x === '') {
+                document.getElementById("result").value = "0";
+            } else {
+                let y = eval(x);
+                document.getElementById("result").value = y;
+            }
+        };
+    </script>
+</body>
+</html>
